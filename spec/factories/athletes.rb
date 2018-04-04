@@ -4,5 +4,6 @@ FactoryBot.define do
     home "Onsala"
     age 26
     start_time "13:37"
+    results_id
   end
 end

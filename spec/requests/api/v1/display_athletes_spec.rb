@@ -1,7 +1,8 @@
 
 RSpec.describe Api::V1::AthletesController, type: :request do
   describe 'GET /api/v1/athletes' do
-    let!(:athlete) { create(:athlete) }
+    let!(:result) {create(:result)}
+    let!(:athlete) { create(:athlete, result: result.id)}
     let(:object) { JSON.parse(response.body)}
 
     it 'Should return a list of all athletes' do
