@@ -1,13 +1,14 @@
 class Api::V1::ResultsController < ApplicationController
   def index
-    render json: sorted_results, status: :ok
+    render json: final_result, status: :ok
   end
 
   private
-  def sorted_results
+
+  def final_result
     results = Result.all
-    sorted_results = results.sort_by { |result| result[:score] }.reverse
-    sorted_results.each { |result| result.valid_score = true if result.number_of_votes > 4 }
-    return sorted_results
+    results.each { |result| result.valid_score = true if result.number_of_votes > 4 }
+    final_result = results.sort_by {|result| result[:score] }.reverse
+    final_result
   end
 end

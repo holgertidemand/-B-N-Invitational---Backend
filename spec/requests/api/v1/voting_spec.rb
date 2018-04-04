@@ -17,7 +17,6 @@ RSpec.describe Api::V1::AthletesController, type: :request do
       put "/api/v1/athletes/#{athlete.id}", params: {
         vote: 10.0
       }
-      
       result = Result.first
       expect(result.score).to eq 10.0
     end
