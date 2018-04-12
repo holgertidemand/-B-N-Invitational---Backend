@@ -33,7 +33,6 @@ class Api::V1::AthletesController < ApiController
   end
 
   def voting
-    binding.pry
     render_message('Thank you for casting your vote!') if @result.updated_votes(params)
   end
 
